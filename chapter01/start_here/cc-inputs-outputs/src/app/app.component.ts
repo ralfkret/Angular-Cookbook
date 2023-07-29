@@ -6,4 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  count = 0;
+  countChanged(event){
+    this.count = event;
+  }
 }
