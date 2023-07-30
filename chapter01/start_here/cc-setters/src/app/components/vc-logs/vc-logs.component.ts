@@ -5,11 +5,24 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './vc-logs.component.html',
   styleUrls: ['./vc-logs.component.scss']
 })
-export class VcLogsComponent implements OnInit {
-  @Input() vName;
-  constructor() { }
+export class VcLogsComponent {
+  private _vName: string;
+  logs: string[] = [];
 
-  ngOnInit(): void {
+  get vName(): string {
+    return this._vName;
+  }
+
+  @Input()
+  set vName(v: string) {
+    if (!v)
+      return;
+    if (!this._vName) {
+      this.logs.push(`initial version is ${v.trim()}`)
+    } else {
+      this.logs.push(`version changed to ${v.trim()}`)
+    }
+    this._vName = v;
   }
 
 }
