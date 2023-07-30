@@ -9,11 +9,10 @@ export class VcLogsComponent {
   private _vName: string;
   logs: string[] = [];
 
+  @Input()
   get vName(): string {
     return this._vName;
   }
-
-  @Input()
   set vName(v: string) {
     if (!v)
       return;
